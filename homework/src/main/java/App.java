@@ -23,7 +23,7 @@ public class App {
             prop.load(input);
             PublicationGenerator publicationGenerator = new PublicationGenerator();
             SubscriptionGeneratorSetup subscriptionGeneratorSetup = new SubscriptionGeneratorSetup(prop);
-            SubscriptionGenerator subscriptionGenerator = new SubscriptionGenerator(subscriptionGeneratorSetup);
+            SubscriptionGenerator subscriptionGenerator = new SubscriptionGenerator(subscriptionGeneratorSetup, true);
 
             // publications
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -35,7 +35,7 @@ public class App {
             sb.delete(sb.length() - 2, sb.length()).append("]\n");
 
             try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(PUBLICATION_PATH + UUID.randomUUID().toString() + ".json"), StandardCharsets.UTF_8))) {
+                    new FileOutputStream(PUBLICATION_PATH + UUID.randomUUID().toString() + ".json"), StandardCharsets.UTF_16))) {
                 writer.write(sb.toString());
             } catch (IOException e) {
                 e.printStackTrace();
@@ -53,13 +53,13 @@ public class App {
             sb.delete(sb.length() - 2, sb.length()).append("]\n");
 
             try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(SUBSCRIPTON_PATH + UUID.randomUUID().toString() + ".json"), StandardCharsets.UTF_8))) {
+                    new FileOutputStream(SUBSCRIPTON_PATH + UUID.randomUUID().toString() + ".json"), StandardCharsets.UTF_16))) {
                 writer.write(sb.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-        } catch (IOException ex) {
+        } catch (IOException | InterruptedException ex) {
             ex.printStackTrace();
         }
     }
