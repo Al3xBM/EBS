@@ -1,9 +1,9 @@
 package sub;
 
 public class SubscriptionDouble implements ISubscriptionField {
-    private Double value;
-    private String operator;
-    private String fieldName;
+    private final Double value;
+    private final String operator;
+    private final String fieldName;
 
     public SubscriptionDouble(Double value, String operator, String fieldName)
     {

@@ -3,11 +3,11 @@ package pub;
 import java.util.Date;
 
 public class Publication {
-    private String company;
-    private double value;
-    private double drop;
-    private double variation;
-    private Date date;
+    private final String company;
+    private final double value;
+    private final double drop;
+    private final double variation;
+    private final Date date;
 
     public Publication(String company, double value, double drop, double variation, Date date){
         this.company = company;

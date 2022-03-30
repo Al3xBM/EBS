@@ -8,14 +8,14 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class SubscriptionGenerator {
-    private SubscriptionGeneratorSetup setup;
+    private final SubscriptionGeneratorSetup setup;
 
-    public SubscriptionGenerator(SubscriptionGeneratorSetup setup){
+    public SubscriptionGenerator(SubscriptionGeneratorSetup setup) {
         this.setup = setup;
     }
 
-    public ISubscriptionField generateSubscription(String field, boolean mustBeEqual){
-        switch (field){
+    public ISubscriptionField generateSubscription(String field, boolean mustBeEqual) {
+        switch (field) {
             case "company":
                 return new SubscriptionString(FieldGenerator.getRandomCompany(), mustBeEqual ? "=" : FieldGenerator.getRandomOperator());
             case "date":
@@ -25,7 +25,7 @@ public class SubscriptionGenerator {
         }
     }
 
-    public List<Subscription> generateSubscriptions(){
+    public List<Subscription> generateSubscriptions() {
 //        List<Subscription> subscriptions = new ArrayList<>();
 //        List<SubscriptionString> companyFields = IntStream.rangeClosed(0, setup.getSubscriptionsNumber())
 //                                                    .mapToObj(i -> (SubscriptionString)null)
@@ -90,58 +90,57 @@ public class SubscriptionGenerator {
         List<ISubscriptionField> subscriptionFields = new ArrayList<>();
 
         for (int i = 0; i < setup.getCompanyFields(); i++) {
-            if(i < setup.getCompanyEqualFields())
+            if (i < setup.getCompanyEqualFields())
                 subscriptionFields.add(generateSubscription("company", true));
             else
                 subscriptionFields.add(generateSubscription("company", false));
         }
 
         for (int i = 0; i < setup.getValueFields(); i++) {
-            if(i < setup.getValueEqualFields())
+            if (i < setup.getValueEqualFields())
                 subscriptionFields.add(generateSubscription("value", true));
             else
                 subscriptionFields.add(generateSubscription("value", false));
         }
 
         for (int i = 0; i < setup.getDropFields(); i++) {
-            if(i < setup.getDropEqualFields())
+            if (i < setup.getDropEqualFields())
                 subscriptionFields.add(generateSubscription("drop", true));
             else
                 subscriptionFields.add(generateSubscription("drop", false));
         }
 
         for (int i = 0; i < setup.getVariationFields(); i++) {
-            if(i < setup.getVariationEqualFields())
+            if (i < setup.getVariationEqualFields())
                 subscriptionFields.add(generateSubscription("variation", true));
             else
                 subscriptionFields.add(generateSubscription("variation", false));
         }
 
         for (int i = 0; i < setup.getDateFields(); i++) {
-            if(i < setup.getDateEqualFields())
+            if (i < setup.getDateEqualFields())
                 subscriptionFields.add(generateSubscription("date", true));
             else
                 subscriptionFields.add(generateSubscription("date", false));
         }
 
         List<Subscription> subscriptions = IntStream.rangeClosed(0, setup.getSubscriptionsNumber())
-                                                    .mapToObj(i -> new Subscription())
-                                                    .collect(Collectors.toList());
+                .mapToObj(i -> new Subscription())
+                .collect(Collectors.toList());
         int index = 0;
         Collections.shuffle(subscriptionFields);
 
-        for(ISubscriptionField subscriptionField : subscriptionFields){
+        for (ISubscriptionField subscriptionField : subscriptionFields) {
 
-            if (subscriptionField instanceof SubscriptionString){
+            if (subscriptionField instanceof SubscriptionString) {
                 if (subscriptions.get(index).getCompany() == null)
                     subscriptions.get(index).setCompany((SubscriptionString) subscriptionField);
 
             } else if (subscriptionField instanceof SubscriptionDate) {
-                    if (subscriptions.get(index).getDate() == null)
-                        subscriptions.get(index).setDate((SubscriptionDate) subscriptionField);
-            } else if (subscriptionField instanceof SubscriptionDouble)
-            {
-                switch (((SubscriptionDouble) subscriptionField).getFieldName()){
+                if (subscriptions.get(index).getDate() == null)
+                    subscriptions.get(index).setDate((SubscriptionDate) subscriptionField);
+            } else if (subscriptionField instanceof SubscriptionDouble) {
+                switch (((SubscriptionDouble) subscriptionField).getFieldName()) {
                     case "value":
                         subscriptions.get(index).setValue((SubscriptionDouble) subscriptionField);
                         break;

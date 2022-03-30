@@ -3,17 +3,17 @@ package sub;
 import java.util.Properties;
 
 public class SubscriptionGeneratorSetup {
-    private int subscriptionsNumber;
-    private int companyFields;
-    private int valueFields;
-    private int dropFields;
-    private int variationFields;
-    private int dateFields;
-    private int companyEqualFields;
-    private int valueEqualFields;
-    private int dropEqualFields;
-    private int variationEqualFields;
-    private int dateEqualFields;
+    private final int subscriptionsNumber;
+    private final int companyFields;
+    private final int valueFields;
+    private final int dropFields;
+    private final int variationFields;
+    private final int dateFields;
+    private final int companyEqualFields;
+    private final int valueEqualFields;
+    private final int dropEqualFields;
+    private final int variationEqualFields;
+    private final int dateEqualFields;
 
     public SubscriptionGeneratorSetup(Properties properties){
         subscriptionsNumber = Integer.parseInt(properties.getProperty("subscriptionsNumber"));
@@ -27,14 +27,13 @@ public class SubscriptionGeneratorSetup {
         dropEqualFields = calculateNumberOfFields(Double.parseDouble(properties.getProperty("dropEqualWeight")), dropFields);
         variationEqualFields = calculateNumberOfFields(Double.parseDouble(properties.getProperty("variationEqualWeight")), variationFields);
         dateEqualFields = calculateNumberOfFields(Double.parseDouble(properties.getProperty("dateEqualWeight")), dateFields);
-
     }
 
     private int calculateNumberOfFields(double weight){
         return (int) Math.ceil(subscriptionsNumber * weight);
     }
 
-    private int calculateNumberOfFields(double weight, int totalNumber){
+    private int calculateNumberOfFields(double weight, int totalNumber) {
         return (int) Math.ceil(totalNumber * weight);
     }
 

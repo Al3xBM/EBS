@@ -1,8 +1,8 @@
 package sub;
 
 public class SubscriptionString implements ISubscriptionField {
-    private String value;
-    private String operator;
+    private final String value;
+    private final String operator;
 
     public SubscriptionString(String value, String operator)
     {

@@ -6,10 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PublicationGenerator {
-    public PublicationGenerator() {
-
-    }
-
     public List<Publication> generatePublications(int messageNumber){
         List<Publication> publications = new ArrayList<>();
 

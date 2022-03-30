@@ -1,0 +1,629 @@
+[{
+  "value": {
+    "value": 91.0193724899619,
+    "operator": "\u003d",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "Apr 30, 3922, 12:00:00 AM",
+    "operator": "\u003e\u003d"
+  }
+},
+{
+  "value": {
+    "value": 98.31043371714287,
+    "operator": "\u003d",
+    "fieldName": "value"
+  },
+  "drop": {
+    "value": 98.05498415296054,
+    "operator": "\u003e\u003d",
+    "fieldName": "drop"
+  },
+  "variation": {
+    "value": 93.18684489299751,
+    "operator": "!\u003d",
+    "fieldName": "variation"
+  }
+},
+{
+  "value": {
+    "value": 92.53985769053918,
+    "operator": "!\u003d",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "May 1, 3922, 12:00:00 AM",
+    "operator": "!\u003d"
+  }
+},
+{
+  "company": {
+    "value": "Bing",
+    "operator": "\u003d"
+  },
+  "date": {
+    "value": "May 20, 3911, 12:00:00 AM",
+    "operator": "\u003c\u003d"
+  }
+},
+{
+  "date": {
+    "value": "May 20, 3911, 12:00:00 AM",
+    "operator": "\u003c\u003d"
+  }
+},
+{
+  "company": {
+    "value": "Yahoo",
+    "operator": "\u003c"
+  },
+  "drop": {
+    "value": 92.1770595572031,
+    "operator": "\u003c",
+    "fieldName": "drop"
+  }
+},
+{
+  "company": {
+    "value": "Bing",
+    "operator": "\u003d"
+  }
+},
+{
+  "value": {
+    "value": 95.01852450878334,
+    "operator": "\u003e",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "Mar 11, 3921, 12:00:00 AM",
+    "operator": "\u003e"
+  }
+},
+{
+  "company": {
+    "value": "Bitdefender",
+    "operator": "\u003d"
+  },
+  "value": {
+    "value": 93.89894220264254,
+    "operator": "\u003e",
+    "fieldName": "value"
+  }
+},
+{
+  "variation": {
+    "value": 92.99977482849637,
+    "operator": "\u003e",
+    "fieldName": "variation"
+  }
+},
+{
+  "value": {
+    "value": 90.04932335422653,
+    "operator": "\u003c",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "Apr 30, 3922, 12:00:00 AM",
+    "operator": "\u003e"
+  }
+},
+{
+  "drop": {
+    "value": 97.11416012228023,
+    "operator": "\u003c",
+    "fieldName": "drop"
+  },
+  "variation": {
+    "value": 95.78876653671047,
+    "operator": "\u003e",
+    "fieldName": "variation"
+  }
+},
+{
+  "drop": {
+    "value": 92.44079197438991,
+    "operator": "\u003c",
+    "fieldName": "drop"
+  },
+  "date": {
+    "value": "Mar 11, 3921, 12:00:00 AM",
+    "operator": "!\u003d"
+  }
+},
+{
+  "value": {
+    "value": 92.20634885770745,
+    "operator": "\u003d",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "Mar 11, 3921, 12:00:00 AM",
+    "operator": "!\u003d"
+  }
+},
+{
+  "value": {
+    "value": 93.66930045046573,
+    "operator": "\u003d",
+    "fieldName": "value"
+  },
+  "variation": {
+    "value": 90.44687145038401,
+    "operator": "\u003e",
+    "fieldName": "variation"
+  }
+},
+{
+  "value": {
+    "value": 95.11126776225358,
+    "operator": "\u003c\u003d",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "Jan 1, 3900, 12:00:00 AM",
+    "operator": "\u003e\u003d"
+  }
+},
+{
+  "value": {
+    "value": 95.32196761282299,
+    "operator": "!\u003d",
+    "fieldName": "value"
+  },
+  "variation": {
+    "value": 91.65736951932772,
+    "operator": "\u003c\u003d",
+    "fieldName": "variation"
+  }
+},
+{
+  "drop": {
+    "value": 92.63842875230432,
+    "operator": "\u003d",
+    "fieldName": "drop"
+  },
+  "variation": {
+    "value": 94.09949335314622,
+    "operator": "!\u003d",
+    "fieldName": "variation"
+  }
+},
+{
+  "value": {
+    "value": 96.57888859710218,
+    "operator": "\u003c\u003d",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "Apr 30, 3922, 12:00:00 AM",
+    "operator": "\u003e"
+  }
+},
+{
+  "value": {
+    "value": 94.20656534838447,
+    "operator": "\u003d",
+    "fieldName": "value"
+  },
+  "drop": {
+    "value": 93.55708008128713,
+    "operator": "\u003c\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "value": {
+    "value": 95.26522023520391,
+    "operator": "!\u003d",
+    "fieldName": "value"
+  },
+  "drop": {
+    "value": 97.69268643488829,
+    "operator": "\u003e",
+    "fieldName": "drop"
+  }
+},
+{
+  "company": {
+    "value": "Amazon",
+    "operator": "\u003e"
+  },
+  "date": {
+    "value": "Jan 1, 3900, 12:00:00 AM",
+    "operator": "\u003c\u003d"
+  }
+},
+{
+  "variation": {
+    "value": 96.55944907779185,
+    "operator": "\u003c",
+    "fieldName": "variation"
+  },
+  "date": {
+    "value": "Jan 1, 3900, 12:00:00 AM",
+    "operator": "\u003c\u003d"
+  }
+},
+{
+  "drop": {
+    "value": 96.23225326408419,
+    "operator": "\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "value": {
+    "value": 91.51068104441433,
+    "operator": "\u003d",
+    "fieldName": "value"
+  },
+  "variation": {
+    "value": 95.95205547709736,
+    "operator": "\u003e\u003d",
+    "fieldName": "variation"
+  }
+},
+{
+  "value": {
+    "value": 92.88414381678352,
+    "operator": "\u003c\u003d",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "Mar 11, 3921, 12:00:00 AM",
+    "operator": "\u003e"
+  }
+},
+{
+  "company": {
+    "value": "Amazon",
+    "operator": "!\u003d"
+  },
+  "drop": {
+    "value": 98.76480587751895,
+    "operator": "\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "value": {
+    "value": 98.9548116996729,
+    "operator": "\u003c",
+    "fieldName": "value"
+  }
+},
+{
+  "drop": {
+    "value": 96.80907250543319,
+    "operator": "\u003e\u003d",
+    "fieldName": "drop"
+  },
+  "date": {
+    "value": "May 20, 3911, 12:00:00 AM",
+    "operator": "\u003e"
+  }
+},
+{
+  "variation": {
+    "value": 95.22091264450788,
+    "operator": "\u003e\u003d",
+    "fieldName": "variation"
+  },
+  "date": {
+    "value": "May 1, 3922, 12:00:00 AM",
+    "operator": "!\u003d"
+  }
+},
+{
+  "date": {
+    "value": "May 1, 3922, 12:00:00 AM",
+    "operator": "\u003e\u003d"
+  }
+},
+{
+  "value": {
+    "value": 98.7015021516259,
+    "operator": "\u003c",
+    "fieldName": "value"
+  },
+  "drop": {
+    "value": 92.42973104477275,
+    "operator": "\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "value": {
+    "value": 98.37531797409503,
+    "operator": "\u003d",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "Jan 1, 3900, 12:00:00 AM",
+    "operator": "\u003e"
+  }
+},
+{
+  "company": {
+    "value": "Conduent",
+    "operator": "\u003c\u003d"
+  },
+  "value": {
+    "value": 93.9208306483052,
+    "operator": "\u003e",
+    "fieldName": "value"
+  }
+},
+{
+  "company": {
+    "value": "Amazon",
+    "operator": "\u003c\u003d"
+  },
+  "drop": {
+    "value": 91.34323620052774,
+    "operator": "\u003e\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "variation": {
+    "value": 96.62660084556774,
+    "operator": "!\u003d",
+    "fieldName": "variation"
+  },
+  "date": {
+    "value": "May 20, 3911, 12:00:00 AM",
+    "operator": "!\u003d"
+  }
+},
+{
+  "drop": {
+    "value": 98.6970626388269,
+    "operator": "!\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "company": {
+    "value": "Google",
+    "operator": "\u003e\u003d"
+  },
+  "value": {
+    "value": 98.52868204554927,
+    "operator": "\u003d",
+    "fieldName": "value"
+  }
+},
+{
+  "company": {
+    "value": "Mind",
+    "operator": "\u003e\u003d"
+  },
+  "drop": {
+    "value": 90.96914199898387,
+    "operator": "\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "value": {
+    "value": 94.92025412285655,
+    "operator": "!\u003d",
+    "fieldName": "value"
+  },
+  "drop": {
+    "value": 90.95332009189966,
+    "operator": "\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "value": {
+    "value": 97.41183800228195,
+    "operator": "!\u003d",
+    "fieldName": "value"
+  },
+  "drop": {
+    "value": 94.94263844707827,
+    "operator": "\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "value": {
+    "value": 94.96826228419482,
+    "operator": "\u003d",
+    "fieldName": "value"
+  }
+},
+{
+  "variation": {
+    "value": 94.6754058540149,
+    "operator": "\u003c",
+    "fieldName": "variation"
+  },
+  "date": {
+    "value": "May 20, 3911, 12:00:00 AM",
+    "operator": "\u003c\u003d"
+  }
+},
+{
+  "company": {
+    "value": "Bing",
+    "operator": "\u003d"
+  },
+  "value": {
+    "value": 97.8782883850506,
+    "operator": "\u003d",
+    "fieldName": "value"
+  }
+},
+{
+  "drop": {
+    "value": 94.98190224714783,
+    "operator": "!\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "value": {
+    "value": 96.25128108050856,
+    "operator": "\u003e\u003d",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "May 20, 3911, 12:00:00 AM",
+    "operator": "\u003c\u003d"
+  }
+},
+{
+  "drop": {
+    "value": 90.36350471080735,
+    "operator": "\u003e\u003d",
+    "fieldName": "drop"
+  },
+  "date": {
+    "value": "May 20, 3911, 12:00:00 AM",
+    "operator": "\u003e"
+  }
+},
+{
+  "company": {
+    "value": "Continental",
+    "operator": "\u003d"
+  },
+  "drop": {
+    "value": 94.39977785411573,
+    "operator": "\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "value": {
+    "value": 94.51872150906422,
+    "operator": "!\u003d",
+    "fieldName": "value"
+  },
+  "drop": {
+    "value": 90.1878275129323,
+    "operator": "\u003c\u003d",
+    "fieldName": "drop"
+  }
+},
+{
+  "value": {
+    "value": 94.67979356937018,
+    "operator": "\u003e",
+    "fieldName": "value"
+  }
+},
+{
+  "company": {
+    "value": "Amazon",
+    "operator": "\u003e\u003d"
+  },
+  "value": {
+    "value": 92.53537830173047,
+    "operator": "\u003e",
+    "fieldName": "value"
+  }
+},
+{
+  "company": {
+    "value": "Mind",
+    "operator": "\u003c"
+  },
+  "value": {
+    "value": 90.01917130667192,
+    "operator": "\u003e\u003d",
+    "fieldName": "value"
+  }
+},
+{
+  "date": {
+    "value": "May 1, 3922, 12:00:00 AM",
+    "operator": "\u003e"
+  }
+},
+{
+  "drop": {
+    "value": 93.63014402152785,
+    "operator": "\u003c",
+    "fieldName": "drop"
+  },
+  "date": {
+    "value": "May 1, 3922, 12:00:00 AM",
+    "operator": "\u003c"
+  }
+},
+{
+  "value": {
+    "value": 96.24208264996548,
+    "operator": "\u003d",
+    "fieldName": "value"
+  }
+},
+{
+  "company": {
+    "value": "Conduent",
+    "operator": "!\u003d"
+  },
+  "date": {
+    "value": "Mar 11, 3921, 12:00:00 AM",
+    "operator": "\u003c"
+  }
+},
+{
+  "company": {
+    "value": "Yahoo",
+    "operator": "!\u003d"
+  },
+  "value": {
+    "value": 94.64410595005744,
+    "operator": "\u003c\u003d",
+    "fieldName": "value"
+  }
+},
+{
+  "value": {
+    "value": 90.0898841974108,
+    "operator": "\u003d",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "May 20, 3911, 12:00:00 AM",
+    "operator": "\u003e\u003d"
+  }
+},
+{
+  "value": {
+    "value": 95.94743870742941,
+    "operator": "\u003c\u003d",
+    "fieldName": "value"
+  }
+},
+{
+  "value": {
+    "value": 92.59071551248061,
+    "operator": "\u003d",
+    "fieldName": "value"
+  },
+  "date": {
+    "value": "Jan 1, 3900, 12:00:00 AM",
+    "operator": "\u003d"
+  }
+},
+{
+  "company": {
+    "value": "Google",
+    "operator": "\u003c"
+  },
+  "value": {
+    "value": 92.59050836526731,
+    "operator": "\u003e\u003d",
+    "fieldName": "value"
+  }
+}]
