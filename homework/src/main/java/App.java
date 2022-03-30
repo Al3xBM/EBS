@@ -26,6 +26,9 @@ public class App {
 
             for(Subscription sub : subscriptionGenerator.generateSubscriptions()){
                 System.out.println(sub);
+
+                if(sub.getCompany() == null && sub.getValue() == null && sub.getDrop() == null && sub.getVariation() == null && sub.getDate() == null)
+                    break;
             }
         } catch (IOException ex){
             ex.printStackTrace();

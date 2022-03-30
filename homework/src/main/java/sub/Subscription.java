@@ -7,6 +7,10 @@ public class Subscription {
     private SubscriptionDouble variation;
     private SubscriptionDate date;
 
+    public Subscription(){
+
+    }
+
     public Subscription(SubscriptionString company, SubscriptionDouble value, SubscriptionDouble drop, SubscriptionDouble variation, SubscriptionDate date)
     {
         this.company = company;
@@ -60,4 +64,23 @@ public class Subscription {
         return date;
     }
 
+    public void setCompany(SubscriptionString company) {
+        this.company = company;
+    }
+
+    public void setValue(SubscriptionDouble value) {
+        this.value = value;
+    }
+
+    public void setDrop(SubscriptionDouble drop) {
+        this.drop = drop;
+    }
+
+    public void setVariation(SubscriptionDouble variation) {
+        this.variation = variation;
+    }
+
+    public void setDate(SubscriptionDate date) {
+        this.date = date;
+    }
 }
