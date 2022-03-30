@@ -1,6 +1,6 @@
 package sub;
 
-public class SubscriptionString {
+public class SubscriptionString implements ISubscriptionField {
     private String value;
     private String operator;
 

@@ -1,6 +1,6 @@
 package sub;
 
-public class SubscriptionDouble {
+public class SubscriptionDouble implements ISubscriptionField {
     private Double value;
     private String operator;
 
