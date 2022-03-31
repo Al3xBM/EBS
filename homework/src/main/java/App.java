@@ -40,7 +40,6 @@ public class App {
                 throw new Exception("No command line args. Please insert.");
 
             System.out.println("Hello World!");
-            System.out.println("Threads number = " + THREADS_NUMBER);
             System.out.println("Multi-threaded? " + (THREADS_NUMBER != 1 ? "yes" : "no"));
             if (THREADS_NUMBER != 1)
                 System.out.println("Subscription chunk size = " + SUBSCRIPTION_CHUNK_SIZE);

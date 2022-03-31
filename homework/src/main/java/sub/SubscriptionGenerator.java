@@ -91,7 +91,8 @@ public class SubscriptionGenerator {
         long exec = System.nanoTime();
         int subscriptionsLength = subscriptionFields.size();
         if (threaded) {
-            ExecutorService executor = Executors.newFixedThreadPool(threads);
+            System.out.println("Threads number = " + (subscriptionsLength / chunk_size + 1));
+            ExecutorService executor = Executors.newFixedThreadPool(subscriptionsLength / chunk_size + 1);
             try {
                 for (int subsIndex = 0; subsIndex < subscriptionsLength; subsIndex += chunk_size) {
                     final int start = subsIndex;
