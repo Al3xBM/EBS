@@ -3,18 +3,26 @@ package sub;
 import helpers.FieldGenerator;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class SubscriptionGenerator {
     private final SubscriptionGeneratorSetup setup;
     private final List<ISubscriptionField> subscriptionFields = new ArrayList<>();
-    private final List<Subscription> subscriptions;
+    private static List<Subscription> subscriptions;
     private final boolean threaded;
+    private final int threads;
+    private final int chunk_size;
+    private static int index = 0;
+    private static double subscriptionGenerationTime = 0;
 
-    public SubscriptionGenerator(SubscriptionGeneratorSetup setup, boolean threaded) {
+    public SubscriptionGenerator(SubscriptionGeneratorSetup setup, int threads, int chunk_size) {
         this.setup = setup;
-        this.threaded = threaded;
+        this.threaded = threads > 1;
+        this.threads = threads;
+        this.chunk_size = chunk_size;
 
         subscriptions = IntStream.rangeClosed(0, setup.getSubscriptionsNumber())
                 .mapToObj(i -> new Subscription())
@@ -32,42 +40,20 @@ public class SubscriptionGenerator {
         }
     }
 
-    public List<Subscription> generateSubscriptions() throws InterruptedException {
+    public List<Subscription> generateSubscriptions() {
         long realExecTime = System.nanoTime();
-        double totalExecTime = 0.;
-        if (threaded) {
-            List<Thread> threads = new ArrayList<>();
-            threads.add(new Thread(this::generateCompanies, "companyThread"));
-            threads.add(new Thread(this::generateValues, "valuesThread"));
-            threads.add(new Thread(this::generateVariation, "variationThread"));
-            threads.add(new Thread(this::generateDrop, "dropThread"));
-            threads.add(new Thread(this::generateDate, "dateThread"));
+        generateCompanies();
+        generateValues();
+        generateVariation();
+        generateDrop();
+        generateDate();
 
-            for (Thread thread : threads) {
-                long startTime = System.nanoTime();
-                thread.start();
-                totalExecTime += (System.nanoTime() - startTime) / 1000000.0;
-                System.out.println("Execution time of thread " + thread.getName() + " = " + (System.nanoTime() - startTime) / 1000000.0);
-            }
-
-            for (Thread thread : threads)
-                thread.join();
-        } else {
-            long startTime = System.nanoTime();
-
-            generateCompanies();
-            generateValues();
-            generateVariation();
-            generateDrop();
-            generateDate();
-
-            totalExecTime += (System.nanoTime() - startTime) / 1000000.0;
-        }
-        System.out.println("Total generation time = " + totalExecTime);
+        double totalExecTime = (System.nanoTime() - realExecTime) / 1000000.0;
+        System.out.println("Fields generation time = " + totalExecTime);
 
         Collections.shuffle(subscriptionFields);
-        generateSubscriptionThreaded();
-        System.out.println("Real generation time = " + (System.nanoTime() - realExecTime) / 1000000.0);
+        generateSubscription();
+        System.out.println("Main thread execution time = " + (System.nanoTime() - realExecTime) / 1000000.0);
         return subscriptions;
     }
 
@@ -102,40 +88,91 @@ public class SubscriptionGenerator {
     }
 
     private void generateSubscription() {
-        int index = 0;
-        for (ISubscriptionField subscriptionField : subscriptionFields) {
-            if (subscriptionField instanceof SubscriptionString) {
-                if (subscriptions.get(index).getCompany() == null)
-                    subscriptions.get(index).setCompany((SubscriptionString) subscriptionField);
-
-            } else if (subscriptionField instanceof SubscriptionDate) {
-                if (subscriptions.get(index).getDate() == null)
-                    subscriptions.get(index).setDate((SubscriptionDate) subscriptionField);
-            } else if (subscriptionField instanceof SubscriptionDouble) {
-                switch (((SubscriptionDouble) subscriptionField).getFieldName()) {
-                    case "value":
-                        subscriptions.get(index).setValue((SubscriptionDouble) subscriptionField);
-                        break;
-                    case "drop":
-                        subscriptions.get(index).setDrop((SubscriptionDouble) subscriptionField);
-                        break;
-                    case "variation":
-                        subscriptions.get(index).setVariation((SubscriptionDouble) subscriptionField);
-                        break;
+        long exec = System.nanoTime();
+        int subscriptionsLength = subscriptionFields.size();
+        if (threaded) {
+            ExecutorService executor = Executors.newFixedThreadPool(threads);
+            try {
+                for (int subsIndex = 0; subsIndex < subscriptionsLength; subsIndex += chunk_size) {
+                    final int start = subsIndex;
+                    final Runnable runnable = new ExecutorWorker(subscriptionFields, subsIndex, chunk_size);
+                    executor.submit(runnable);
                 }
+            } finally {
+                executor.shutdown();
             }
-
-            index = index >= subscriptions.size() - 1 ? 0 : index + 1;
+        } else {
+            new ExecutorWorker(subscriptionFields, 0, subscriptionsLength).run();
         }
+        System.out.println("Subscription generation time = " + (System.nanoTime() - exec) / 1000000.0);
     }
 
-    private void generateSubscriptionThreaded() {
-        long startTime = System.nanoTime();
-        if (threaded) {
-            new Thread(this::generateSubscription).start();
-        } else {
-            generateSubscription();
+    private static class ExecutorWorker implements Runnable {
+        private final List<ISubscriptionField> subscriptionFields;
+        private final int offset;
+        private final int toProcess;
+
+        public ExecutorWorker(List<ISubscriptionField> subscriptionFields, int offset, int toProcess) {
+            this.subscriptionFields = subscriptionFields;
+            this.offset = offset;
+            this.toProcess = toProcess;
         }
-        System.out.println("Subscription generation time = " + (System.nanoTime() - startTime) / 1000000.0);
+
+        @Override
+        public void run() {
+            long exec = System.nanoTime();
+            int end = offset + toProcess;
+            if (end > subscriptionFields.size())
+                end = subscriptionFields.size();
+
+//            System.out.println("start = " + offset + "; to process = " + end);
+            for (int j = offset; j < end; j++) {
+                ISubscriptionField subscriptionField = subscriptionFields.get(j);
+
+                if (subscriptionField instanceof SubscriptionString) {
+                    if (subscriptions.get(index).getCompany() == null)
+                        subscriptions.get(index).setCompany((SubscriptionString) subscriptionField);
+
+                } else if (subscriptionField instanceof SubscriptionDate) {
+                    if (subscriptions.get(index).getDate() == null)
+                        subscriptions.get(index).setDate((SubscriptionDate) subscriptionField);
+                } else if (subscriptionField instanceof SubscriptionDouble) {
+                    switch (((SubscriptionDouble) subscriptionField).getFieldName()) {
+                        case "value":
+                            subscriptions.get(index).setValue((SubscriptionDouble) subscriptionField);
+                            break;
+                        case "drop":
+                            subscriptions.get(index).setDrop((SubscriptionDouble) subscriptionField);
+                            break;
+                        case "variation":
+                            subscriptions.get(index).setVariation((SubscriptionDouble) subscriptionField);
+                            break;
+                    }
+                }
+
+                index = index >= subscriptions.size() - 1 ? 0 : index + 1;
+            }
+//            double execTime = (System.nanoTime() - exec) / 1000000.0;
+//			System.out.println("Chunk exec time = " + execTime);
+        }
     }
 }
+
+/**
+ //            List<Thread> threads = new ArrayList<>();
+ //            threads.add(new Thread(this::generateCompanies, "companyThread"));
+ //            threads.add(new Thread(this::generateValues, "valuesThread"));
+ //            threads.add(new Thread(this::generateVariation, "variationThread"));
+ //            threads.add(new Thread(this::generateDrop, "dropThread"));
+ //            threads.add(new Thread(this::generateDate, "dateThread"));
+ //
+ //            for (Thread thread : threads) {
+ //                long startTime = System.nanoTime();
+ //                thread.start();
+ //                totalExecTime += (System.nanoTime() - startTime) / 1000000.0;
+ //                System.out.println("Execution time of thread " + thread.getName() + " = " + (System.nanoTime() - startTime) / 1000000.0);
+ //            }
+ //
+ //            for (Thread thread : threads)
+ //                thread.join();
+ */

@@ -1,0 +1,41 @@
+Results gained after running program 10 times with the following configurations:
+publicationsNumber=100000
+subscriptionsNumber=100000
+companyWeight=0.3
+valueWeight=0.7
+dropWeight=0.4
+variationWeight=0.2
+dateWeight=0.5
+companyEqualWeight=0.1
+valueEqualWeight=0.3
+dropEqualWeight=0.2
+variationEqualWeight=0
+dateEqualWeight=0
+
+
+Threads number = 1
+Multi-threaded? no
+Fields generation time = 29.19998 (Average)
+Subscription generation time = 30.552910000000004 (Average)
+Main thread execution time = 78.56175 (Average)
+
+Threads number = 5
+Multi-threaded? yes
+Subscription chunk size = 1000
+Fields generation time = 21.522550000000003 (Average)
+Subscription generation time = 2.0058000000000002 (Average)
+Main thread execution time = 34.513929999999995 (Average)
+
+Threads number = 10
+Multi-threaded? yes
+Subscription chunk size = 1000
+Fields generation time = 12.72969 (Average)
+Subscription generation time = 12.43124 (Average)
+Main thread execution time = 30.679700000000004 (Average)
+
+
+
+Laptop configuration:
+Processor: Intel(R) Core(TM) i5-6200 CPU @ 2.30GHz (4CPUs), ~2.4GHz
+Memory: 4096MB RAM
+BIOS: X556UJ, 412
