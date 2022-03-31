@@ -13,22 +13,22 @@ variationEqualWeight=0
 dateEqualWeight=0
 
 
-Threads number = 1
 Multi-threaded? no
+Threads number = 1
 Fields generation time = 29.19998 (Average)
 Subscription generation time = 30.552910000000004 (Average)
 Main thread execution time = 78.56175 (Average)
 
-Threads number = 5
 Multi-threaded? yes
-Subscription chunk size = 1000
+Subscription chunk size = 4000
+Threads number = 5
 Fields generation time = 21.522550000000003 (Average)
 Subscription generation time = 2.0058000000000002 (Average)
 Main thread execution time = 34.513929999999995 (Average)
 
-Threads number = 10
 Multi-threaded? yes
-Subscription chunk size = 1000
+Subscription chunk size = 2000
+Threads number = 10
 Fields generation time = 12.72969 (Average)
 Subscription generation time = 12.43124 (Average)
 Main thread execution time = 30.679700000000004 (Average)
